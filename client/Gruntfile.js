@@ -18,6 +18,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-html2js');
+  grunt.loadNpmTasks('grunt-loopback-sdk-angular');
 
   /**
    * Load in our build configuration file.
@@ -89,7 +90,8 @@ module.exports = function ( grunt ) {
      */
     clean: [ 
       '<%= build_dir %>', 
-      '<%= compile_dir %>'
+      '<%= compile_dir %>',
+      'src/app/lb-services.js'
     ],
 
     /**
@@ -269,7 +271,8 @@ module.exports = function ( grunt ) {
      */
     jshint: {
       src: [ 
-        '<%= app_files.js %>'
+        '<%= app_files.js %>',
+        '!src/app/lb-services.js' // Do not jshint lb-services
       ],
       test: [
         '<%= app_files.jsunit %>'
@@ -528,6 +531,14 @@ module.exports = function ( grunt ) {
           livereload: false
         }
       }
+    },
+    loopback_sdk_angular: {
+      services: {
+        options: {
+          input: '../server/server.js',
+          output: 'src/app/lb-services.js'
+        }
+      }
     }
   };
 
@@ -552,7 +563,7 @@ module.exports = function ( grunt ) {
    * The `build` task gets your app ready to run for development and testing.
    */
   grunt.registerTask( 'build', [
-    'clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
+    'clean', 'html2js', 'jshint', 'loopback_sdk_angular', 'coffeelint', 'coffee', 'less:build',
     'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
     'copy:build_appjs', 'copy:build_vendorjs', 'index:build', 'karmaconfig',
     'karma:continuous' 
