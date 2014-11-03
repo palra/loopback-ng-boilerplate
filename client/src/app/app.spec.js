@@ -18,4 +18,8 @@ describe('AppCtrl', function() {
     }));
   });
   
+  describe('$rootScope.loading', function() {
+    
+  });
+  
 });

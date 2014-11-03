@@ -18,12 +18,17 @@ angular.module( 'ngBoilerplate.user', [
 .run( function run () {
 })
 
+.value('LOGIN_REDIRECT', 'home')
+.value('LOGOUT_REDIRECT', 'home')
+
 .controller( 'UserLoginCtrl', function UserLoginCtrl (
     $scope,
     $rootScope,
     $location,
     $http,
-    User
+    $state,
+    User,
+    LOGIN_REDIRECT
   ){
   $scope.$watch('user', function() {
     $scope.error = false;
@@ -32,11 +37,33 @@ angular.module( 'ngBoilerplate.user', [
   $scope.user = {};
   $scope.login = function() {
     User.login($scope.user, function loginSuccess(result) {
+      $rootScope.user = result.user;
       $rootScope.loggedIn = true;
-      $rootScope.$broadcast('authentication:token', result.id);
-      $http.defaults.headers.common.Authorization = result.id;
+      $state.go(LOGIN_REDIRECT);
     }, function loginError() {
       $scope.error = true;
+    });
+  };
+})
+
+.controller('UserLogoutCtrl', function UserLogoutCtrl(
+    $scope,
+    $rootScope,
+    $http,
+    $state,
+    $timeout,
+    User,
+    LOGOUT_REDIRECT
+  ) {
+  $scope.logout = function() {
+    User.logout(function logoutSuccess() {
+      $rootScope.loggedIn = false;
+      $state.go(LOGOUT_REDIRECT);
+    }, function logoutError() {
+      $scope.error = true;
+      $timeout(function() {
+        $scope.error = false;
+      }, 3000);
     });
   };
 })
