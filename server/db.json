@@ -1,7 +1,7 @@
 {
   "ids": {
     "User": 2,
-    "AccessToken": 1,
+    "AccessToken": 2,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1
@@ -10,7 +10,9 @@
     "User": {
       "1": "{\"password\":\"$2a$10$5AKVbMK3fFD0lE1Ux2yqpuLjFgSJ..TROs2I73WL.J9yuO3DRnoCm\",\"email\":\"palra@palra.fr\",\"id\":1}"
     },
-    "AccessToken": {},
+    "AccessToken": {
+      "dLx8EcNaKtUQalLBe4VFVKuQX2dSP5RZQHuuJFEdMyCKFLEhCaXWe1i9PjeHlcmq": "{\"id\":\"dLx8EcNaKtUQalLBe4VFVKuQX2dSP5RZQHuuJFEdMyCKFLEhCaXWe1i9PjeHlcmq\",\"ttl\":1209600,\"created\":\"2014-11-03T21:35:59.038Z\",\"userId\":1}"
+    },
     "ACL": {},
     "RoleMapping": {},
     "Role": {}
