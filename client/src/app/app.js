@@ -1,13 +1,14 @@
 angular.module( 'ngBoilerplate', [
   'templates-app',
   'templates-common',
+  'ngBoilerplate.user',
   'ngBoilerplate.home',
   'ui.router',
   'lbServices'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/home' );
+  $urlRouterProvider.otherwise('/home');
 })
 
 .run( function run () {
