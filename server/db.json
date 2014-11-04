@@ -1,7 +1,7 @@
 {
   "ids": {
     "User": 2,
-    "AccessToken": 2,
+    "AccessToken": 4,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1
@@ -11,7 +11,8 @@
       "1": "{\"password\":\"$2a$10$5AKVbMK3fFD0lE1Ux2yqpuLjFgSJ..TROs2I73WL.J9yuO3DRnoCm\",\"email\":\"palra@palra.fr\",\"id\":1}"
     },
     "AccessToken": {
-      "dLx8EcNaKtUQalLBe4VFVKuQX2dSP5RZQHuuJFEdMyCKFLEhCaXWe1i9PjeHlcmq": "{\"id\":\"dLx8EcNaKtUQalLBe4VFVKuQX2dSP5RZQHuuJFEdMyCKFLEhCaXWe1i9PjeHlcmq\",\"ttl\":1209600,\"created\":\"2014-11-03T21:35:59.038Z\",\"userId\":1}"
+      "dLx8EcNaKtUQalLBe4VFVKuQX2dSP5RZQHuuJFEdMyCKFLEhCaXWe1i9PjeHlcmq": "{\"id\":\"dLx8EcNaKtUQalLBe4VFVKuQX2dSP5RZQHuuJFEdMyCKFLEhCaXWe1i9PjeHlcmq\",\"ttl\":1209600,\"created\":\"2014-11-03T21:35:59.038Z\",\"userId\":1}",
+      "6SS34pySI27UF9IByVgKDNUakU8XGEoZrbyVFzBcngyf229ckkPQXb63AibO5j5s": "{\"id\":\"6SS34pySI27UF9IByVgKDNUakU8XGEoZrbyVFzBcngyf229ckkPQXb63AibO5j5s\",\"ttl\":1209600,\"created\":\"2014-11-04T09:25:34.062Z\",\"userId\":1}"
     },
     "ACL": {},
     "RoleMapping": {},
