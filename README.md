@@ -23,3 +23,11 @@ slc run      # In the root directory
 grunt watch  # In the `client` directory
 
 ```
+
+## TODO
+
+* Admin
+  * Add list of users
+  * Add access control, roles, etc ... management
+* Common
+  * Use server validation messages in the AngularJS forms
