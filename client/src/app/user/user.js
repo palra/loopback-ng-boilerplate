@@ -38,7 +38,7 @@ angular.module( 'ngBoilerplate.user', [
   $scope.login = function() {
     User.login($scope.user, function loginSuccess(result) {
       $rootScope.user = result.user;
-      $rootScope.loggedIn = true;
+      User.getCurrent();
       $state.go(LOGIN_REDIRECT);
     }, function loginError() {
       $scope.error = true;
@@ -53,11 +53,12 @@ angular.module( 'ngBoilerplate.user', [
     $state,
     $timeout,
     User,
+    LoopBackAuth,
     LOGOUT_REDIRECT
   ) {
   $scope.logout = function() {
     User.logout(function logoutSuccess() {
-      $rootScope.loggedIn = false;
+      LoopBackAuth.clearUser();
       $state.go(LOGOUT_REDIRECT);
     }, function logoutError() {
       $scope.error = true;

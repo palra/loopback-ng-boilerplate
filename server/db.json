@@ -1,17 +1,20 @@
 {
   "ids": {
-    "User": 3,
-    "AccessToken": 1,
+    "user": 3,
+    "AccessToken": 6,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1
   },
   "models": {
-    "User": {
+    "user": {
       "1": "{\"username\":\"bob\",\"password\":\"$2a$10$vO65lw2K0Nbkz6YTUxXRKOPzgLXVpTJUuAlthV8PTmuro8CDj/Ab.\",\"email\":\"bob@projects.com\",\"id\":1}",
       "2": "{\"username\":\"\",\"password\":\"$2a$10$4KTzd/bQzGWgcL96d92UoeCNyvCG/vTTHxvQEm0yFHzqvX0XswbbK\",\"email\":\"palra@palra.fr\",\"id\":2}"
     },
-    "AccessToken": {},
+    "AccessToken": {
+      "JLI24gtX0pFQtRpb7VMLePXzfQQ1DcdyFMiaB35DwcEPPdevVLiwUaNBYz26l7Uh": "{\"id\":\"JLI24gtX0pFQtRpb7VMLePXzfQQ1DcdyFMiaB35DwcEPPdevVLiwUaNBYz26l7Uh\",\"ttl\":1209600,\"created\":\"2014-11-04T14:08:23.078Z\",\"userId\":1}",
+      "ZNBojcnxiEYZqdJWv2zOB9UIRO1vyfOZrIyyAm1zELjOgQBsb2NfHHQ1IuGXxzjK": "{\"id\":\"ZNBojcnxiEYZqdJWv2zOB9UIRO1vyfOZrIyyAm1zELjOgQBsb2NfHHQ1IuGXxzjK\",\"ttl\":1209600,\"created\":\"2014-11-04T14:30:39.002Z\",\"userId\":2}"
+    },
     "ACL": {},
     "RoleMapping": {},
     "Role": {}

@@ -1,7 +1,8 @@
 angular.module( 'ngBoilerplate.admin.user', [
   'ui.router',
   'ui.utils',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.grid'
 ])
 
 .config( function adminUserConfig ( $stateProvider, $urlRouterProvider ) {
@@ -22,6 +23,17 @@ angular.module( 'ngBoilerplate.admin.user', [
       "admin.user": {
         controller: 'AdminUserCreateCtrl',
         templateUrl: 'admin/user/create.tpl.html'
+      }
+    },
+    data:{ pageTitle: 'Create new user' }
+  });
+  
+  $stateProvider.state('admin.user.list', {
+    url: '/list', // Implicit /admin/user before
+    views: {
+      "admin.user": {
+        controller: 'AdminUserListCtrl',
+        templateUrl: 'admin/user/list.tpl.html'
       }
     },
     data:{ pageTitle: 'Create new user' }
@@ -52,6 +64,7 @@ angular.module( 'ngBoilerplate.admin.user', [
   
   $scope.user = {};
   $scope.create = function() {
+    $scope.user.rememberMe = false;
     User.create($scope.user, function createSuccess(result) {
       $scope.success = true;
       $scope.error = false;
@@ -65,5 +78,21 @@ angular.module( 'ngBoilerplate.admin.user', [
     });
   };
 })
+
+.controller( 'AdminUserListCtrl', function UserCreateCtrl (
+    $scope,
+    $rootScope,
+    $location,
+    $http,
+    $state,
+    $timeout,
+    User
+  ){
+  $scope.gridOptions = {
+    enableSorting: true
+  };
+  $scope.gridOptions.data = User.find();
+})
+
 
 ;

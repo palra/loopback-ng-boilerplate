@@ -42,7 +42,7 @@ describe('User Management', function() {
     
     
     $httpBackend
-      .whenPOST(/\/api\/Users\/login/)
+      .whenPOST(/\/api\/users\/login/)
       .respond({
         id: fakeToken,
         ttl: 1209600,
@@ -50,18 +50,25 @@ describe('User Management', function() {
         user: fakeUser,
         userId: fakeUser.id
       });
+    $httpBackend
+      .whenGET(/\/api\/users\/42/)
+      .respond(fakeUser);
   }));
 
   it('should login an user', inject(function() {
     $httpBackend
-      .expectPOST(/\/api\/Users\/login/)
+      .expectPOST(/\/api\/users\/login/)
+    ;
+    $httpBackend
+      .expectGET(/\/api\/users\/42/)
+      .respond(204, null)  
     ;
     
     login($scope);
     
     $httpBackend.flush();
     
-    expect($rootScope.loggedIn).toBe(true);
+    expect(models.User.isAuthenticated()).toBe(true);
     expect($rootScope.user).toEqual(fakeUser);
   }));
   
@@ -69,16 +76,15 @@ describe('User Management', function() {
     login($rootScope.$new());
     
     $httpBackend
-      .expectPOST(/\/api\/Users\/logout/)
+      .expectPOST(/\/api\/users\/logout/)
       .respond(204, null)  
     ;
-      
     logout($scope);
     
     $httpBackend.flush();
       $rootScope.user = {};
     
-    expect($rootScope.loggedIn).toBe(false);
+    expect(models.User.isAuthenticated()).toBe(false);
     expect($rootScope.user).toEqual({});
   }));
 });

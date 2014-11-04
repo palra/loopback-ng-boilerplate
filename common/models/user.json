@@ -1,0 +1,17 @@
+{
+  "name": "user",
+  "base": "User",
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+    }
+  ],
+  "methods": []
+}

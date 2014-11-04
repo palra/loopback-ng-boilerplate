@@ -36,7 +36,7 @@ module.factory(
   "User",
   ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
     var R = Resource(
-      urlBase + "/Users/:id",
+      urlBase + "/users/:id",
       { 'id': '@id' },
       {
 
@@ -80,7 +80,7 @@ module.factory(
          *
          */
         "login": {
-          url: urlBase + "/Users/login",
+          url: urlBase + "/users/login",
           method: "POST",
           params: {
             include: "user"
@@ -127,7 +127,7 @@ module.factory(
          * This method returns no data.
          */
         "logout": {
-          url: urlBase + "/Users/logout",
+          url: urlBase + "/users/logout",
           method: "POST",
           interceptor: {
             response: function(response) {
@@ -168,7 +168,7 @@ module.factory(
          * This method returns no data.
          */
         "confirm": {
-          url: urlBase + "/Users/confirm",
+          url: urlBase + "/users/confirm",
           method: "GET",
         },
 
@@ -203,50 +203,50 @@ module.factory(
          * This method returns no data.
          */
         "resetPassword": {
-          url: urlBase + "/Users/reset",
+          url: urlBase + "/users/reset",
           method: "POST",
         },
 
         // INTERNAL. Use User.accessTokens.findById() instead.
         "prototype$__findById__accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens/:fk",
+          url: urlBase + "/users/:id/accessTokens/:fk",
           method: "GET",
         },
 
         // INTERNAL. Use User.accessTokens.destroyById() instead.
         "prototype$__destroyById__accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens/:fk",
+          url: urlBase + "/users/:id/accessTokens/:fk",
           method: "DELETE",
         },
 
         // INTERNAL. Use User.accessTokens.updateById() instead.
         "prototype$__updateById__accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens/:fk",
+          url: urlBase + "/users/:id/accessTokens/:fk",
           method: "PUT",
         },
 
         // INTERNAL. Use User.accessTokens() instead.
         "prototype$__get__accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens",
+          url: urlBase + "/users/:id/accessTokens",
           method: "GET",
           isArray: true,
         },
 
         // INTERNAL. Use User.accessTokens.create() instead.
         "prototype$__create__accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens",
+          url: urlBase + "/users/:id/accessTokens",
           method: "POST",
         },
 
         // INTERNAL. Use User.accessTokens.destroyAll() instead.
         "prototype$__delete__accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens",
+          url: urlBase + "/users/:id/accessTokens",
           method: "DELETE",
         },
 
         // INTERNAL. Use User.accessTokens.count() instead.
         "prototype$__count__accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens/count",
+          url: urlBase + "/users/:id/accessTokens/count",
           method: "GET",
         },
 
@@ -284,7 +284,7 @@ module.factory(
          * </em>
          */
         "create": {
-          url: urlBase + "/Users",
+          url: urlBase + "/users",
           method: "POST",
         },
 
@@ -322,7 +322,7 @@ module.factory(
          * </em>
          */
         "upsert": {
-          url: urlBase + "/Users",
+          url: urlBase + "/users",
           method: "PUT",
         },
 
@@ -354,7 +354,7 @@ module.factory(
          *  - `exists` – `{boolean=}` - 
          */
         "exists": {
-          url: urlBase + "/Users/:id/exists",
+          url: urlBase + "/users/:id/exists",
           method: "GET",
         },
 
@@ -387,7 +387,7 @@ module.factory(
          * </em>
          */
         "findById": {
-          url: urlBase + "/Users/:id",
+          url: urlBase + "/users/:id",
           method: "GET",
         },
 
@@ -420,7 +420,7 @@ module.factory(
          * </em>
          */
         "find": {
-          url: urlBase + "/Users",
+          url: urlBase + "/users",
           method: "GET",
           isArray: true,
         },
@@ -454,7 +454,7 @@ module.factory(
          * </em>
          */
         "findOne": {
-          url: urlBase + "/Users/findOne",
+          url: urlBase + "/users/findOne",
           method: "GET",
         },
 
@@ -488,7 +488,7 @@ module.factory(
          * This method returns no data.
          */
         "updateAll": {
-          url: urlBase + "/Users/update",
+          url: urlBase + "/users/update",
           method: "POST",
         },
 
@@ -518,7 +518,7 @@ module.factory(
          * This method returns no data.
          */
         "deleteById": {
-          url: urlBase + "/Users/:id",
+          url: urlBase + "/users/:id",
           method: "DELETE",
         },
 
@@ -550,7 +550,7 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "count": {
-          url: urlBase + "/Users/count",
+          url: urlBase + "/users/count",
           method: "GET",
         },
 
@@ -587,7 +587,7 @@ module.factory(
          * </em>
          */
         "prototype$updateAttributes": {
-          url: urlBase + "/Users/:id",
+          url: urlBase + "/users/:id",
           method: "PUT",
         },
 
@@ -618,7 +618,7 @@ module.factory(
          *   from the server.
          */
         "getCurrent": {
-           url: urlBase + "/" + "/Users" + "/:id",
+           url: urlBase + "/users" + "/:id",
            method: "GET",
            params: {
              id: function() {
@@ -834,7 +834,7 @@ module.factory(
          *
          * @description
          *
-         * Queries accessTokens of User.
+         * Queries accessTokens of user.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -859,7 +859,7 @@ module.factory(
          */
         R.accessTokens = function() {
           var TargetResource = $injector.get("AccessToken");
-          var action = TargetResource["::get::User::accessTokens"];
+          var action = TargetResource["::get::user::accessTokens"];
           return action.apply(R, arguments);
         };
 
@@ -870,7 +870,7 @@ module.factory(
          *
          * @description
          *
-         * Counts accessTokens of User.
+         * Counts accessTokens of user.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -894,7 +894,7 @@ module.factory(
          */
         R.accessTokens.count = function() {
           var TargetResource = $injector.get("AccessToken");
-          var action = TargetResource["::count::User::accessTokens"];
+          var action = TargetResource["::count::user::accessTokens"];
           return action.apply(R, arguments);
         };
 
@@ -932,7 +932,7 @@ module.factory(
          */
         R.accessTokens.create = function() {
           var TargetResource = $injector.get("AccessToken");
-          var action = TargetResource["::create::User::accessTokens"];
+          var action = TargetResource["::create::user::accessTokens"];
           return action.apply(R, arguments);
         };
 
@@ -963,7 +963,7 @@ module.factory(
          */
         R.accessTokens.destroyAll = function() {
           var TargetResource = $injector.get("AccessToken");
-          var action = TargetResource["::delete::User::accessTokens"];
+          var action = TargetResource["::delete::user::accessTokens"];
           return action.apply(R, arguments);
         };
 
@@ -998,7 +998,7 @@ module.factory(
          */
         R.accessTokens.destroyById = function() {
           var TargetResource = $injector.get("AccessToken");
-          var action = TargetResource["::destroyById::User::accessTokens"];
+          var action = TargetResource["::destroyById::user::accessTokens"];
           return action.apply(R, arguments);
         };
 
@@ -1034,7 +1034,7 @@ module.factory(
          */
         R.accessTokens.findById = function() {
           var TargetResource = $injector.get("AccessToken");
-          var action = TargetResource["::findById::User::accessTokens"];
+          var action = TargetResource["::findById::user::accessTokens"];
           return action.apply(R, arguments);
         };
 
@@ -1074,7 +1074,7 @@ module.factory(
          */
         R.accessTokens.updateById = function() {
           var TargetResource = $injector.get("AccessToken");
-          var action = TargetResource["::updateById::User::accessTokens"];
+          var action = TargetResource["::updateById::user::accessTokens"];
           return action.apply(R, arguments);
         };
 
@@ -1454,45 +1454,45 @@ module.factory(
         },
 
         // INTERNAL. Use User.accessTokens.findById() instead.
-        "::findById::User::accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens/:fk",
+        "::findById::user::accessTokens": {
+          url: urlBase + "/users/:id/accessTokens/:fk",
           method: "GET",
         },
 
         // INTERNAL. Use User.accessTokens.destroyById() instead.
-        "::destroyById::User::accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens/:fk",
+        "::destroyById::user::accessTokens": {
+          url: urlBase + "/users/:id/accessTokens/:fk",
           method: "DELETE",
         },
 
         // INTERNAL. Use User.accessTokens.updateById() instead.
-        "::updateById::User::accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens/:fk",
+        "::updateById::user::accessTokens": {
+          url: urlBase + "/users/:id/accessTokens/:fk",
           method: "PUT",
         },
 
         // INTERNAL. Use User.accessTokens() instead.
-        "::get::User::accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens",
+        "::get::user::accessTokens": {
+          url: urlBase + "/users/:id/accessTokens",
           method: "GET",
           isArray: true,
         },
 
         // INTERNAL. Use User.accessTokens.create() instead.
-        "::create::User::accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens",
+        "::create::user::accessTokens": {
+          url: urlBase + "/users/:id/accessTokens",
           method: "POST",
         },
 
         // INTERNAL. Use User.accessTokens.destroyAll() instead.
-        "::delete::User::accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens",
+        "::delete::user::accessTokens": {
+          url: urlBase + "/users/:id/accessTokens",
           method: "DELETE",
         },
 
         // INTERNAL. Use User.accessTokens.count() instead.
-        "::count::User::accessTokens": {
-          url: urlBase + "/Users/:id/accessTokens/count",
+        "::count::user::accessTokens": {
+          url: urlBase + "/users/:id/accessTokens/count",
           method: "GET",
         },
       }

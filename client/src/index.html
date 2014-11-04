@@ -62,17 +62,17 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li ng-if="!$rootScope.loggedIn" ui-sref-active="active">
+            <li ng-if="!loggedIn()" ui-sref-active="active">
               <a href ui-sref="login">
                 <i class="fa fa-sign-in"></i>
                 Sign in
               </a>
             </li>
-            <li ng-if="$rootScope.loggedIn" ng-controller="UserLogoutCtrl" class="dropdown">
+            <li ng-if="loggedIn()" ng-controller="UserLogoutCtrl" class="dropdown">
               <a href class="dropdown-toggle" data-toggle="dropdown">
                 <span ng-class="error && 'text-danger'">
                   <i class="fa fa-user"></i>
-                  Hi, {{$rootScope.user.email}} !
+                  Hi, {{ user().email }}
                   <i class="fa fa-caret-down"></i>
                 </span>
               </a>

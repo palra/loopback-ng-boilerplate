@@ -69,13 +69,19 @@ module.exports = {
       'vendor/angular-ui-utils/ui-utils.js',
       'vendor/angular-resource/angular-resource.js',
       'vendor/angular-animate/angular-animate.js',
+      'vendor/angular-ui-grid/ui-grid.js',
       'vendor/angular-loading-bar/build/loading-bar.js',
       'vendor/jquery/dist/jquery.js',
       'vendor/bootstrap/dist/js/bootstrap.js'
     ],
     css: [
+      // I include CSS vendors in main.less
     ],
     assets: [
+      'vendor/angular-ui-grid/ui-grid.svg',
+      'vendor/angular-ui-grid/ui-grid.ttf',
+      'vendor/angular-ui-grid/ui-grid.woff',
+      'vendor/angular-ui-grid/ui-grid.eot'
     ]
   },
 };
