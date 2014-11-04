@@ -2,7 +2,7 @@ angular.module( 'ngBoilerplate.user', [
   'ui.router'
 ])
 
-.config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
+.config( function userConfig ( $stateProvider, $urlRouterProvider ) {
   $stateProvider.state('login', {
     url: '/login',
     views: {
