@@ -37,8 +37,7 @@ angular.module( 'ngBoilerplate.user', [
   $scope.user = {};
   $scope.login = function() {
     User.login($scope.user, function loginSuccess(result) {
-      $rootScope.user = result.user;
-      User.getCurrent();
+      //User.getCurrent();
       $state.go(LOGIN_REDIRECT);
     }, function loginError() {
       $scope.error = true;

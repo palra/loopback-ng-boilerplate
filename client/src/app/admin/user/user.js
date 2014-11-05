@@ -2,14 +2,15 @@ angular.module( 'ngBoilerplate.admin.user', [
   'ui.router',
   'ui.utils',
   'ui.bootstrap',
-  'ui.grid'
+  'ui.grid',
+  'templates-common'
 ])
 
 .config( function adminUserConfig ( $stateProvider, $urlRouterProvider ) {
   $stateProvider.state('admin.user', {
     url: '/user', // Implicit /admin before
     views: {
-      "admin": {
+      'admin': {
         controller: 'AdminUserTabCtrl',
         templateUrl: 'admin/user/user.tpl.html'
       }
@@ -20,7 +21,7 @@ angular.module( 'ngBoilerplate.admin.user', [
   $stateProvider.state('admin.user.create', {
     url: '/create', // Implicit /admin/user before
     views: {
-      "admin.user": {
+      'admin.user': {
         controller: 'AdminUserCreateCtrl',
         templateUrl: 'admin/user/create.tpl.html'
       }
@@ -31,9 +32,20 @@ angular.module( 'ngBoilerplate.admin.user', [
   $stateProvider.state('admin.user.list', {
     url: '/list', // Implicit /admin/user before
     views: {
-      "admin.user": {
+      'admin.user': {
         controller: 'AdminUserListCtrl',
         templateUrl: 'admin/user/list.tpl.html'
+      }
+    },
+    data:{ pageTitle: 'Create new user' }
+  });
+  
+  $stateProvider.state('admin.user.profile', {
+    url: '/{id:[0-9]+}', // Implicit /admin/user before
+    views: {
+      'admin.user': {
+        controller: 'AdminUserProfileCtrl',
+        templateUrl: 'admin/user/profile.tpl.html'
       }
     },
     data:{ pageTitle: 'Create new user' }
@@ -49,7 +61,7 @@ angular.module( 'ngBoilerplate.admin.user', [
     
 })
 
-.controller( 'AdminUserCreateCtrl', function UserCreateCtrl (
+.controller( 'AdminUserCreateCtrl', function AdminUserCreateCtrl (
     $scope,
     $rootScope,
     $location,
@@ -79,7 +91,7 @@ angular.module( 'ngBoilerplate.admin.user', [
   };
 })
 
-.controller( 'AdminUserListCtrl', function UserCreateCtrl (
+.controller( 'AdminUserListCtrl', function AdminUserListCtrl (
     $scope,
     $rootScope,
     $location,
@@ -89,9 +101,70 @@ angular.module( 'ngBoilerplate.admin.user', [
     User
   ){
   $scope.gridOptions = {
-    enableSorting: true
+    data: User.find(),
+    enableSorting: true,
+    enableFiltering: true,
+    enableRowSelection: true,
+    enableRowHeaderSelection: false,
+    multiSelect: false,
+    modifierKeysToMultiSelect: false,
+    noUnselect: true,
+    onRegisterApi: function(gridApi) {
+      $scope.gridApi = gridApi;
+    },
+    columnDefs: [
+      {
+        field: 'id',
+        name: '#',
+        width: 75
+      },
+      {
+        field: 'username'
+      },
+      {
+        field: 'email'
+      },
+      {
+        name: 'Operations',
+        enableSorting: false,
+        enableFiltering: false,
+        cellTemplate: 'ui-grid/uiGridCellRD.tpl.html',
+        width: 115
+      }
+    ]
   };
-  $scope.gridOptions.data = User.find();
+  
+  $scope.crudActions = {
+    view: function(row) {
+      var user = row.entity;
+      $state.go('admin.user.profile', {
+        id: user.id
+      });
+    },
+    edit: function(row) {
+      var user = row.entity;
+    },
+    remove: function(row) {
+      var user = row.entity;
+    }
+  };
+})
+
+.controller( 'AdminUserProfileCtrl', function AdminUserProfileCtrl (
+    $scope,
+    $rootScope,
+    $location,
+    $http,
+    $state,
+    $stateParams,
+    $timeout,
+    User
+  ){
+  $scope.user = User.findById({id: $stateParams.id}, function profileSuccess(data) {
+    // ...
+  }, function profileError() {
+      $state.go('admin.user.list');
+  });
 })
 
 

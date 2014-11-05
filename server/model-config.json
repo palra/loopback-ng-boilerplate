@@ -7,13 +7,13 @@
       "./models"
     ]
   },
-  "User": {
-    "dataSource": "db",
-    "public": false
-  },
   "user": {
     "dataSource": "db",
     "public": true
+  },
+  "User": {
+    "dataSource": "db",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",

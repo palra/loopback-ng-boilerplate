@@ -6,11 +6,31 @@
   "relations": {},
   "acls": [
     {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "create"
+    },
+    {
+      "permission": "ALLOW",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "accessType": "READ",
+      "property": "find"
+    },
+    {
+      "permission": "ALLOW",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "accessType": "READ",
+      "property": "create"
+    },
+    {
+      "permission": "ALLOW",
+      "principalId": "moderator",
       "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "find"
+      "property": "create"
     }
   ],
   "methods": []

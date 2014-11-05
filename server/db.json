@@ -1,22 +1,28 @@
 {
   "ids": {
-    "user": 3,
-    "AccessToken": 6,
+    "User": 1,
+    "user": 4,
+    "AccessToken": 3,
     "ACL": 1,
-    "RoleMapping": 1,
-    "Role": 1
+    "RoleMapping": 3,
+    "Role": 3
   },
   "models": {
+    "User": {},
     "user": {
-      "1": "{\"username\":\"bob\",\"password\":\"$2a$10$vO65lw2K0Nbkz6YTUxXRKOPzgLXVpTJUuAlthV8PTmuro8CDj/Ab.\",\"email\":\"bob@projects.com\",\"id\":1}",
-      "2": "{\"username\":\"\",\"password\":\"$2a$10$4KTzd/bQzGWgcL96d92UoeCNyvCG/vTTHxvQEm0yFHzqvX0XswbbK\",\"email\":\"palra@palra.fr\",\"id\":2}"
+      "1": "{\"username\":\"palra\",\"password\":\"$2a$10$QX0A4JaDotDBA/i.4oN0p.Z9Uvi9WKgNj3SYUyyUc19R6xh43Qf1m\",\"email\":\"palra@palra.com\",\"id\":1}",
+      "2": "{\"username\":\"alice\",\"password\":\"$2a$10$xTLXfrkessjQJgAQAfw01ewh2T92.fl4mMwOix9ZFiDSO1NuZk/82\",\"email\":\"alice@alice.com\",\"id\":2}",
+      "3": "{\"username\":\"bob\",\"password\":\"$2a$10$O1QpaA15KX2rl3CAfT4hpeN92zlZ4EeeTYfZbrLJNixnWc1XHSYWe\",\"email\":\"bob@bob.com\",\"id\":3}"
     },
-    "AccessToken": {
-      "JLI24gtX0pFQtRpb7VMLePXzfQQ1DcdyFMiaB35DwcEPPdevVLiwUaNBYz26l7Uh": "{\"id\":\"JLI24gtX0pFQtRpb7VMLePXzfQQ1DcdyFMiaB35DwcEPPdevVLiwUaNBYz26l7Uh\",\"ttl\":1209600,\"created\":\"2014-11-04T14:08:23.078Z\",\"userId\":1}",
-      "ZNBojcnxiEYZqdJWv2zOB9UIRO1vyfOZrIyyAm1zELjOgQBsb2NfHHQ1IuGXxzjK": "{\"id\":\"ZNBojcnxiEYZqdJWv2zOB9UIRO1vyfOZrIyyAm1zELjOgQBsb2NfHHQ1IuGXxzjK\",\"ttl\":1209600,\"created\":\"2014-11-04T14:30:39.002Z\",\"userId\":2}"
-    },
+    "AccessToken": {},
     "ACL": {},
-    "RoleMapping": {},
-    "Role": {}
+    "RoleMapping": {
+      "1": "{\"id\":1,\"principalType\":\"USER\",\"principalId\":\"1\",\"roleId\":1}",
+      "2": "{\"id\":2,\"principalType\":\"USER\",\"principalId\":\"2\",\"roleId\":2}"
+    },
+    "Role": {
+      "1": "{\"id\":1,\"name\":\"admin\",\"created\":\"2014-11-05T11:01:46.425Z\",\"modified\":\"2014-11-05T11:01:46.425Z\"}",
+      "2": "{\"id\":2,\"name\":\"moderator\",\"created\":\"2014-11-05T11:01:46.425Z\",\"modified\":\"2014-11-05T11:01:46.425Z\"}"
+    }
   }
 }

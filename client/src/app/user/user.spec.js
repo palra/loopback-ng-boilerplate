@@ -1,4 +1,31 @@
 describe('User Management', function() {
+  
+  beforeEach(function() {
+    this.addMatchers({
+      toBeSimilarTo: function(expected) {
+        function buildObject(object) {
+          var built = {};
+          for (var name in object) {
+            if (object.hasOwnProperty(name)) {
+              built[name] = object[name];
+            }
+          }
+          return built;
+        }
+  
+        var actualObject = buildObject(this.actual);
+        var expectedObject = buildObject(expected);
+        var notText = this.isNot ? " not" : "";
+  
+        this.message = function () {
+          return "Expected " + actualObject + notText + " to be similar to " + expectedObject;
+        };
+  
+        return jasmine.getEnv().equals_(actualObject, expectedObject);
+  
+      }
+    });
+  });
     
   var UserLoginCtrl,
       UserLogoutCtrl,
@@ -59,17 +86,17 @@ describe('User Management', function() {
     $httpBackend
       .expectPOST(/\/api\/users\/login/)
     ;
-    $httpBackend
+    /*$httpBackend
       .expectGET(/\/api\/users\/42/)
       .respond(204, null)  
-    ;
+    ;*/
     
     login($scope);
     
     $httpBackend.flush();
     
     expect(models.User.isAuthenticated()).toBe(true);
-    expect($rootScope.user).toEqual(fakeUser);
+    expect(models.User.getCachedCurrent()).toBeSimilarTo(fakeUser);
   }));
   
   it('should logout an user', inject(function() {

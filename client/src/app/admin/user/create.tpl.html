@@ -97,10 +97,12 @@
             ng-class="success && 'btn-success' || (error && 'btn-danger' || 'btn-primary')"
             ng-disabled="createForm.$invalid"
           >Submit</button>
-          <hr>
-          <alert ng-if="error" type="danger">
-            {{ errorData.message }}
-          </alert>
+          <div ng-if="error">
+            <hr>
+            <alert type="danger">
+              {{ errorData.message }}
+            </alert>
+          </div>
         <!-- Form end -->
         </form>
       </div>

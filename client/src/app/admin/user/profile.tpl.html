@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      User profile #{{user.id}}
+    </div>
+    <div class="panel-body">
+      <address>
+        <!-- Username -->
+        <div ng-if="user.username">
+          <strong>
+            <i class="fa fa-user"></i>
+            Username :
+          </strong>
+          {{ user.username }}
+        </div>
+        <!-- Email -->
+        <div ng-if="user.email">
+          <strong>
+            <i class="fa fa-envelope"></i>
+            Email :
+          </strong>
+          {{ user.email }}
+        </div>
+      </address>
+      <code>{{ user }}</code>
+    </div>
+  </div>
+  </div>
+</div>
