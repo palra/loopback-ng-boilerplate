@@ -2,7 +2,7 @@
   "ids": {
     "User": 1,
     "user": 4,
-    "AccessToken": 3,
+    "AccessToken": 2,
     "ACL": 1,
     "RoleMapping": 3,
     "Role": 3
@@ -10,19 +10,21 @@
   "models": {
     "User": {},
     "user": {
-      "1": "{\"username\":\"palra\",\"password\":\"$2a$10$QX0A4JaDotDBA/i.4oN0p.Z9Uvi9WKgNj3SYUyyUc19R6xh43Qf1m\",\"email\":\"palra@palra.com\",\"id\":1}",
-      "2": "{\"username\":\"alice\",\"password\":\"$2a$10$xTLXfrkessjQJgAQAfw01ewh2T92.fl4mMwOix9ZFiDSO1NuZk/82\",\"email\":\"alice@alice.com\",\"id\":2}",
-      "3": "{\"username\":\"bob\",\"password\":\"$2a$10$O1QpaA15KX2rl3CAfT4hpeN92zlZ4EeeTYfZbrLJNixnWc1XHSYWe\",\"email\":\"bob@bob.com\",\"id\":3}"
+      "1": "{\"username\":\"palra\",\"password\":\"$2a$10$08Pdbmf3QYrR5XXStHZa2uGXmxjbKlBHug7vW9sXMDzK3p4p.oF9y\",\"email\":\"palra@palra.com\",\"id\":1}",
+      "2": "{\"username\":\"alice\",\"password\":\"$2a$10$fWo213ViwdyZN9e1tZTPye4ACGmfoDr.VPMCB9.ETfaXVkLJvWm3i\",\"email\":\"alice@alice.com\",\"id\":2}",
+      "3": "{\"username\":\"bob\",\"password\":\"$2a$10$u3iRy91Wyj/Q/DNoD/cBGeUhNCaPjNPDxC/1g5k5xjLOQPQObQgxC\",\"email\":\"bob@bob.com\",\"id\":3}"
     },
-    "AccessToken": {},
+    "AccessToken": {
+      "SzIaC9SYlSXyouwOXJnHcfrpEEmFrNUvVgwSmMQ4ReHVNTucnGCQUlPwEEBdUfhO": "{\"id\":\"SzIaC9SYlSXyouwOXJnHcfrpEEmFrNUvVgwSmMQ4ReHVNTucnGCQUlPwEEBdUfhO\",\"ttl\":1209600,\"created\":\"2014-11-05T14:12:03.418Z\",\"userId\":1}"
+    },
     "ACL": {},
     "RoleMapping": {
       "1": "{\"id\":1,\"principalType\":\"USER\",\"principalId\":\"1\",\"roleId\":1}",
       "2": "{\"id\":2,\"principalType\":\"USER\",\"principalId\":\"2\",\"roleId\":2}"
     },
     "Role": {
-      "1": "{\"id\":1,\"name\":\"admin\",\"created\":\"2014-11-05T11:01:46.425Z\",\"modified\":\"2014-11-05T11:01:46.425Z\"}",
-      "2": "{\"id\":2,\"name\":\"moderator\",\"created\":\"2014-11-05T11:01:46.425Z\",\"modified\":\"2014-11-05T11:01:46.425Z\"}"
+      "1": "{\"id\":1,\"name\":\"admin\",\"created\":\"2014-11-05T14:11:48.922Z\",\"modified\":\"2014-11-05T14:11:48.922Z\"}",
+      "2": "{\"id\":2,\"name\":\"moderator\",\"created\":\"2014-11-05T14:11:48.923Z\",\"modified\":\"2014-11-05T14:11:48.923Z\"}"
     }
   }
 }

@@ -48,7 +48,7 @@ angular.module( 'ngBoilerplate.admin.user', [
         templateUrl: 'admin/user/profile.tpl.html'
       }
     },
-    data:{ pageTitle: 'Create new user' }
+    data:{ pageTitle: 'User profile' }
   });
 })
 
@@ -98,6 +98,7 @@ angular.module( 'ngBoilerplate.admin.user', [
     $http,
     $state,
     $timeout,
+    $modal,
     User
   ){
   $scope.gridOptions = {
@@ -141,11 +142,27 @@ angular.module( 'ngBoilerplate.admin.user', [
         id: user.id
       });
     },
-    edit: function(row) {
-      var user = row.entity;
-    },
     remove: function(row) {
       var user = row.entity;
+      $modal.open({
+        templateUrl: 'admin/user/removeModal.tpl.html',
+        controller: 'AdminUserRemoveCtrl',
+        resolve: {
+          user: function() {
+            return user;
+          },
+          onSuccess: function() {
+            return function() {
+              $scope.gridOptions.data = User.find();
+            };
+          },
+          onError: function() {
+            return function() {
+              // TODO
+            };
+          }
+        }
+      });
     }
   };
 })
@@ -167,5 +184,27 @@ angular.module( 'ngBoilerplate.admin.user', [
   });
 })
 
+.controller('AdminUserRemoveCtrl', function AdminUserRemoveCtrl(
+    $scope,
+    $state,
+    $modalInstance,
+    User,
+    user,
+    onSuccess,
+    onError
+  ){
+  $scope.close = $modalInstance.close;
+  $scope.remove = function() {
+    return User.deleteById({
+      id: user.id
+    }, function deleteSuccess() {
+      $scope.close();
+      (onSuccess || angular.noop).apply(this, arguments);
+    }, function deleteError(){
+      $scope.close();
+      (onError || angular.noop).apply(this, arguments);
+    });
+  };
+})
 
 ;

@@ -60,6 +60,7 @@ angular.module( 'ngBoilerplate.user', [
       LoopBackAuth.clearUser();
       $state.go(LOGOUT_REDIRECT);
     }, function logoutError() {
+      LoopBackAuth.clearUser();
       $scope.error = true;
       $timeout(function() {
         $scope.error = false;

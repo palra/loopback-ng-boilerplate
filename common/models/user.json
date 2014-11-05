@@ -12,25 +12,31 @@
       "property": "create"
     },
     {
-      "permission": "ALLOW",
+      "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "admin",
-      "accessType": "READ",
+      "permission": "ALLOW",
       "property": "find"
     },
     {
-      "permission": "ALLOW",
+      "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
       "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "moderator",
+      "permission": "ALLOW",
       "property": "create"
     },
     {
       "permission": "ALLOW",
-      "principalId": "moderator",
-      "accessType": "READ",
       "principalType": "ROLE",
-      "property": "create"
+      "principalId": "admin",
+      "accessType": "*"
     }
   ],
   "methods": []
